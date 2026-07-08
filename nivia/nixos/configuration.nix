@@ -18,6 +18,7 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
+    ./home-manager.nix
   ];
 
     ##############
@@ -246,7 +247,7 @@
 
     networking = {
       networkmanager.enable = true;
-      hostName = "6667"; # Define your hostname.
+      hostName = "Override";
       # wlp3s0
       interfaces = {
           wlp3s0.useDHCP = true;
