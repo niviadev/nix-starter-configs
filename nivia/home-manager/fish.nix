@@ -1,8 +1,9 @@
+{ pkgs, ... }:
 {
     programs.fish = {
         enable = true;
         interactiveShellInit = ''
-        set fish_greeting # Disable greeting
+        echo woof!
         '';
         plugins = [
             # Enable a plugin (here grc for colorized command output) from nixpkgs

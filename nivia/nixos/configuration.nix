@@ -19,29 +19,13 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
     ./home-manager.nix
+    ./desktop-environment.nix
+    ./locale.nix
+    ./steam.nix
   ];
 
-    ##############
-    ### LOCALE ###
-    ##############
-
-    # Set your time zone.
-    time.timeZone = "Europe/Berlin";
-
-    # Select internationalisation properties.
-    i18n.defaultLocale = "en_US.UTF-8";
-
-    i18n.extraLocaleSettings = {
-        LC_ADDRESS = "de_DE.UTF-8";
-        LC_IDENTIFICATION = "de_DE.UTF-8";
-        LC_MEASUREMENT = "de_DE.UTF-8";
-        LC_MONETARY = "de_DE.UTF-8";
-        LC_NAME = "de_DE.UTF-8";
-        LC_NUMERIC = "de_DE.UTF-8";
-        LC_PAPER = "de_DE.UTF-8";
-        LC_TELEPHONE = "de_DE.UTF-8";
-        LC_TIME = "de_DE.UTF-8";
-    };
+  # Configure console keymap
+  console.keyMap = "de(qwerty)";
 
 
   nixpkgs = {
@@ -97,7 +81,7 @@
     };
     thunar = {
         enable = true;
-        plugins = with pkgs.xfce; [
+        plugins = with pkgs; [
             thunar-archive-plugin
             thunar-media-tags-plugin
             thunar-volman
@@ -144,43 +128,43 @@
         telegram-desktop
 
         # xfce
-        xfce.catfish
-        xfce.gigolo
-        xfce.orage
-        xfce.xfburn
-        xfce.xfce4-appfinder
-        xfce.xfce4-clipman-plugin
-        xfce.xfce4-dict
-        xfce.xfce4-fsguard-plugin
-        xfce.xfce4-genmon-plugin
-        xfce.xfce4-netload-plugin
-        xfce.xfce4-panel
-        xfce.xfce4-pulseaudio-plugin
-        xfce.xfce4-systemload-plugin
-        xfce.xfce4-whiskermenu-plugin
-        xfce.xfce4-session
-        xfce.xfce4-xkb-plugin
-        xfce.xfdashboard
-        xfce.xfce4-battery-plugin
-        xfce.xfce4-panel-profiles
-        xfce.xfce4-cpugraph-plugin
-        xfce.xfce4-timer-plugin
-        xfce.xfce4-fsguard-plugin
-        xfce.xfce4-cpufreq-plugin
-        xfce.xfce4-windowck-plugin
-        xfce.xfce4-sensors-plugin
+        catfish
+        gigolo
+        orage
+        xfburn
+        xfce4-appfinder
+        xfce4-clipman-plugin
+        xfce4-dict
+        xfce4-fsguard-plugin
+        xfce4-genmon-plugin
+        xfce4-netload-plugin
+        xfce4-panel
+        xfce4-pulseaudio-plugin
+        xfce4-systemload-plugin
+        xfce4-whiskermenu-plugin
+        xfce4-session
+        xfce4-xkb-plugin
+        xfdashboard
+        xfce4-battery-plugin
+        xfce4-panel-profiles
+        xfce4-cpugraph-plugin
+        xfce4-timer-plugin
+        xfce4-fsguard-plugin
+        xfce4-cpufreq-plugin
+        xfce4-windowck-plugin
+        xfce4-sensors-plugin
         indicator-application-gtk2
-        xfce.xfconf
-        xfce.xfce4-xkb-plugin
-        xfce.xfce4-verve-plugin
-        xfce.xfce4-terminal
-        xfce.xfce4-taskmanager
-        xfce.xfce4-settings
-        xfce.xfce4-screenshooter
-        xfce.xfce4-notifyd
-        xfce.thunar-vcs-plugin
-        xfce.thunar-archive-plugin
-        xfce.thunar
+        xfconf
+        xfce4-xkb-plugin
+        xfce4-verve-plugin
+        xfce4-terminal
+        xfce4-taskmanager
+        xfce4-settings
+        xfce4-screenshooter
+        xfce4-notifyd
+        thunar-vcs-plugin
+        thunar-archive-plugin
+        thunar
         font-manager
         xclip
         xcolor
@@ -193,7 +177,7 @@
 
         #games
         openttd
-        celestegame
+        # celestegame #FIXME reenable
         vbam
 
 	    # media
