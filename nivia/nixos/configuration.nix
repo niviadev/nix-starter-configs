@@ -120,6 +120,8 @@
     # kubectl
     jdk21
     openscad
+    hyfetch
+    fastfetch
 
     # messenger
     fluffychat # matrix client
