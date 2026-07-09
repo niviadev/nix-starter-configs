@@ -3,7 +3,7 @@
     programs.fish = {
         enable = true;
         interactiveShellInit = ''
-        echo woof!
+        echo woof! woof!
         '';
         plugins = [
             # Enable a plugin (here grc for colorized command output) from nixpkgs

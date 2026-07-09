@@ -91,140 +91,139 @@
   };
 
   # List packages installed in system profile. To search, run:
-    # $ nix search wget
-    environment.systemPackages = with pkgs; [ #FIXME these might be home packages
-        # editor
-        vim
-        # nano comes by default
+  # $ nix search wget
+  environment.systemPackages = with pkgs; [ #FIXME these might be home packages
+    # editor
+    vim
+    # nano comes by default
 
-        # browser
-        ungoogled-chromium
+    # browser
+    ungoogled-chromium
 
-        #fish
-        fishPlugins.done
-        fishPlugins.fzf-fish
-        fishPlugins.forgit
-        fishPlugins.hydro
-        fzf
-        fishPlugins.grc
-        grc
+    #fish
+    fishPlugins.done
+    fishPlugins.fzf-fish
+    fishPlugins.forgit
+    fishPlugins.hydro
+    fzf
+    fishPlugins.grc
+    grc
 
-        # VM
-        gnome-boxes # VM management
-        dnsmasq # VM networking
-        phodav # (optional) share files with guest VMs
+    # VM
+    # gnome-boxes # VM management
+    # dnsmasq # VM networking
+    # phodav # (optional) share files with guest VMs
 
-        # dev
-        vscodium # VS-Code
-        qFlipper # FlipperZero
-        kubectl
-        jdk21
-        openscad
+    # dev
+    vscodium # VS-Code
+    qFlipper # FlipperZero
+    # kubectl
+    jdk21
+    openscad
 
-        # messenger
-        fluffychat # matrix client
-        signal-desktop
-        deltachat-desktop
-        telegram-desktop
+    # messenger
+    fluffychat # matrix client
+    signal-desktop
+    deltachat-desktop
+    telegram-desktop
 
-        # xfce
-        catfish
-        gigolo
-        orage
-        xfburn
-        xfce4-appfinder
-        xfce4-clipman-plugin
-        xfce4-dict
-        xfce4-fsguard-plugin
-        xfce4-genmon-plugin
-        xfce4-netload-plugin
-        xfce4-panel
-        xfce4-pulseaudio-plugin
-        xfce4-systemload-plugin
-        xfce4-whiskermenu-plugin
-        xfce4-session
-        xfce4-xkb-plugin
-        xfdashboard
-        xfce4-battery-plugin
-        xfce4-panel-profiles
-        xfce4-cpugraph-plugin
-        xfce4-timer-plugin
-        xfce4-fsguard-plugin
-        xfce4-cpufreq-plugin
-        xfce4-windowck-plugin
-        xfce4-sensors-plugin
-        indicator-application-gtk2
-        xfconf
-        xfce4-xkb-plugin
-        xfce4-verve-plugin
-        xfce4-terminal
-        xfce4-taskmanager
-        xfce4-settings
-        xfce4-screenshooter
-        xfce4-notifyd
-        thunar-vcs-plugin
-        thunar-archive-plugin
-        thunar
-        font-manager
-        xclip
-        xcolor
-        xdo
-        xdotool
-        xcape
+    # xfce
+    catfish
+    gigolo
+    orage
+    xfburn
+    xfce4-appfinder
+    xfce4-clipman-plugin
+    xfce4-dict
+    xfce4-fsguard-plugin
+    xfce4-genmon-plugin
+    xfce4-netload-plugin
+    xfce4-panel
+    xfce4-pulseaudio-plugin
+    xfce4-systemload-plugin
+    xfce4-whiskermenu-plugin
+    xfce4-session
+    xfce4-xkb-plugin
+    xfdashboard
+    xfce4-battery-plugin
+    xfce4-panel-profiles
+    xfce4-cpugraph-plugin
+    xfce4-timer-plugin
+    xfce4-fsguard-plugin
+    xfce4-cpufreq-plugin
+    xfce4-windowck-plugin
+    xfce4-sensors-plugin
+    indicator-application-gtk2
+    xfconf
+    xfce4-xkb-plugin
+    xfce4-verve-plugin
+    xfce4-terminal
+    xfce4-taskmanager
+    xfce4-settings
+    xfce4-screenshooter
+    xfce4-notifyd
+    thunar-vcs-plugin
+    thunar-archive-plugin
+    thunar
+    font-manager
+    xclip
+    xcolor
+    xdo
+    xdotool
+    xcape
 
-        # python
-        uv
+    # python
+    uv
 
-        #games
-        openttd
-        # celestegame #FIXME reenable
-        vbam
+    #games
+    openttd
+    # celestegame #FIXME reenable
+    vbam
 
-	    # media
-	    x264 # H264/AVC video
-	    vlc # vlc media player
-	    ffmpeg
-	    obs-studio
-        kdePackages.okular # epub reader
-        ebook_tools
-        calibre
+    # media
+    x264 # H264/AVC video
+    vlc # vlc media player
+    ffmpeg
+    obs-studio
+    kdePackages.okular # epub reader
+    ebook_tools
+    calibre
 
-        # contact management using vcard (.vcf, .cvard)
+    # contact management using vcard (.vcf, .cvard)
+    khard
 
-        khard
-
-        # unspecified
-        age #encryption
-        borgbackup
-        exiftool
-        pdftk
-        nix-tree
-        poppler-utils
-        zip
-        p7zip
-        niv
-        arandr
-        kind
-        sqlite
-        wget
-        libreoffice-qt
-        obsidian
-        keepassxc
-        prusa-slicer
-        waybar
-        niri
-        gimp2-with-plugins
-        gnome-disk-utility
-        qalculate-gtk
-        unzip
-        android-tools
-        pavucontrol
-	    pass
-	    pinentry-gtk2
-	    yubico-pam
-        jitsi
-        nextcloud-client
-    ];
+    # unspecified
+    age #encryption
+    borgbackup
+    exiftool
+    pdftk
+    nix-tree
+    poppler-utils
+    zip
+    p7zip
+    niv
+    arandr
+    kind
+    sqlite
+    wget
+    libreoffice-qt
+    obsidian
+    keepassxc
+    prusa-slicer
+    waybar
+    niri
+    gimp2-with-plugins
+    gnome-disk-utility
+    qalculate-gtk
+    unzip
+    android-tools
+    pavucontrol
+    pass
+    pinentry-gtk2
+    yubico-pam
+    jitsi
+    nextcloud-client
+  ];
 
   # FIXME: Add the rest of your current configuration
 
