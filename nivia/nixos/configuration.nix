@@ -20,8 +20,10 @@
     ./hardware-configuration.nix
     ./home-manager.nix
     ./desktop-environment.nix
+    ./networking
     ./locale.nix
     ./steam.nix
+    ./toki-pona.nix
   ];
 
   # Configure console keymap
@@ -94,8 +96,9 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [ #FIXME these might be home packages
     # editor
-    vim
+    #vim
     # nano comes by default
+    librewolf
 
     # browser
     ungoogled-chromium
@@ -229,15 +232,8 @@
 
   # FIXME: Add the rest of your current configuration
 
-
-    networking = {
-      networkmanager.enable = true;
-      hostName = "Override";
-      # wlp3s0
-      interfaces = {
-          wlp3s0.useDHCP = true;
-      };
-  };
+  #enable blutooth gui
+  services.blueman.enable = true;
 
   users.users = {
     nivia = {
