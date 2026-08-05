@@ -1,0 +1,127 @@
+{
+  "exportMeta": {
+    "version": "13.6.31",
+    "knownCapabilities": [
+      "script",
+      "object",
+      "media",
+      "frame",
+      "font",
+      "wasm",
+      "webgl",
+      "fetch",
+      "ping",
+      "noscript",
+      "lazy_load",
+      "unchecked_css",
+      "lan",
+      "other"
+    ]
+  },
+  "policy": {
+    "DEFAULT": {
+      "capabilities": [
+        "frame",
+        "noscript",
+        "other"
+      ],
+      "temp": false
+    },
+    "TRUSTED": {
+      "capabilities": [
+        "script",
+        "object",
+        "media",
+        "frame",
+        "font",
+        "wasm",
+        "webgl",
+        "fetch",
+        "ping",
+        "noscript",
+        "lazy_load",
+        "unchecked_css",
+        "lan",
+        "other"
+      ],
+      "temp": false
+    },
+    "UNTRUSTED": {
+      "capabilities": [],
+      "temp": false
+    },
+    "sites": {
+      "trusted": [
+        "§:addons.mozilla.org",
+        "§:afx.ms",
+        "§:ajax.aspnetcdn.com",
+        "§:ajax.googleapis.com",
+        "§:bootstrapcdn.com",
+        "§:code.jquery.com",
+        "§:firstdata.com",
+        "§:firstdata.lv",
+        "§:gfx.ms",
+        "§:google.com",
+        "§:googlevideo.com",
+        "§:gstatic.com",
+        "§:hotmail.com",
+        "§:live.com",
+        "§:live.net",
+        "§:maps.googleapis.com",
+        "§:mozilla.net",
+        "§:netflix.com",
+        "§:nflxext.com",
+        "§:nflximg.com",
+        "§:nflxvideo.net",
+        "§:noscript.net",
+        "§:outlook.com",
+        "§:passport.com",
+        "§:passport.net",
+        "§:passportimages.com",
+        "§:paypal.com",
+        "§:paypalobjects.com",
+        "§:securecode.com",
+        "§:securesuite.net",
+        "§:sfx.ms",
+        "§:tinymce.cachefly.net",
+        "§:wlxrs.com",
+        "§:yahoo.com",
+        "§:yahooapis.com",
+        "§:yimg.com",
+        "§:youtube.com",
+        "§:ytimg.com"
+      ],
+      "untrusted": [],
+      "custom": {}
+    },
+    "enforced": true,
+    "autoAllowTop": true
+  },
+  "contextStore": {
+    "enabled": false,
+    "policies": {}
+  },
+  "local": {
+    "debug": false,
+    "showCtxMenuItem": true,
+    "showCountBadge": true,
+    "showFullAddresses": false,
+    "showProbePlaceholders": true,
+    "amnesticUpdates": false,
+    "autoReload": true,
+    "gestureEnabled": false,
+    "storage": "local",
+    "uuid": "e47afedc-c470-43b4-bf0b-7548142a8d98"
+  },
+  "sync": {
+    "global": false,
+    "xss": true,
+    "TabGuardMode": "incognito",
+    "TabGuardPrompt": "post",
+    "cascadePermissions": true,
+    "cascadeRestrictions": false,
+    "overrideTorBrowserPolicy": false,
+    "storage": "sync"
+  },
+  "xssUserChoices": {}
+}

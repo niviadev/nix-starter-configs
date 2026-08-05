@@ -1,0 +1,55 @@
+/* Hide scrollbar in FF Quantum */
+*{scrollbar-width: 2px !important}
+
+/* Hide tab bar in FF Quantum */
+@-moz-document url(chrome://browser/content/browser.xul), url(chrome://browser/content/browser.xhtml) {
+    #TabsToolbar {
+    visibility: collapse !important;
+    margin-bottom: 21px !important;
+    }
+
+    #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
+    visibility: collapse !important;
+    }
+}
+
+#main-window #TabsToolbar {
+    visibility: collapse !important;
+}
+
+#main-window #tabbrowser-tabs {
+    z-index: 0 !important;
+}
+
+:root {
+    --autohide-sidebar-width: 0px;
+    --uc-window-control-width: 0x; /* Space reserved for window controls */
+    --uc-window-drag-space-width: 1px; 
+    /* Extra space reserved on both sides of the nav-bar to be able to drag the window */
+    --uc-toolbar-height: 0px;
+    --autohide-sidebar-toolbar-height: var(--uc-toolbar-height, 0px); /* variable from hide_titlebar.css */
+}
+:root[sizemode="normal"] {
+    --autohide-sidebar-toolbar-height: var(--uc-toolbar-height, 0px); /* variable from hide_titlebar.css */
+}
+
+
+
+/* remove back & forward button from UI toolbar */
+#back-button, #forward-button {
+  display: none;
+}
+
+/* Extensions button (puzzle piece)
+    this is used for the Bonjourr Startpage to remove the big extension button
+    TODO adapt this so it only hits bonjourr
+    FIXME not working yet
+*/
+#unified-extensions-button,
+#unified-extensions-button-container,
+#extensions-button,
+#extensions-panel-button,
+#nav-bar #unified-extensions-button,
+#nav-bar #extensions-button {
+  display: none !important;
+}

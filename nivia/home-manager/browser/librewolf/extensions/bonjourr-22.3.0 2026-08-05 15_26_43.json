@@ -1,0 +1,184 @@
+{
+  "about": {
+    "browser": "firefox",
+    "version": "22.3.0"
+  },
+  "advanced": {
+    "altMode": true,
+    "escKey": true
+  },
+  "showall": true,
+  "lang": "en",
+  "dark": "system",
+  "favicon": "⚧️",
+  "tabtitle": "awawa",
+  "greeting": "nivia",
+  "greetingsize": "3",
+  "greetingsmode": "auto",
+  "pagegap": 1,
+  "pagewidth": 1600,
+  "time": true,
+  "main": true,
+  "dateformat": "us",
+  "quicklinks": true,
+  "textShadow": 0.2,
+  "announcements": "major",
+  "review": 0,
+  "css": "",
+  "hide": {
+    "weatherdesc": true,
+    "weathericon": false
+  },
+  "linkstyle": "medium",
+  "linktitles": true,
+  "linkbackgrounds": true,
+  "linknewtab": false,
+  "linksrow": 6,
+  "linkiconradius": 1.1,
+  "linkgroups": {
+    "on": false,
+    "selected": "default",
+    "groups": [
+      "default"
+    ],
+    "pinned": [],
+    "synced": []
+  },
+  "backgrounds": {
+    "type": "images",
+    "fadein": 600,
+    "blur": 15,
+    "bright": 0.6,
+    "frequency": "hour",
+    "color": "#185A63",
+    "urls": "",
+    "images": "bonjourr-images-daylight",
+    "videos": "bonjourr-videos-daylight",
+    "mute": true,
+    "queries": {},
+    "texture": {
+      "type": "none"
+    }
+  },
+  "clock": {
+    "size": 0.875,
+    "ampm": false,
+    "analog": false,
+    "seconds": false,
+    "ampmlabel": false,
+    "ampmposition": "top-left",
+    "worldclocks": false,
+    "timezone": "Europe/Berlin"
+  },
+  "worldclocks": [],
+  "analogstyle": {
+    "face": "none",
+    "hands": "modern",
+    "shape": "round",
+    "border": "#ffff",
+    "background": "#fff2"
+  },
+  "weather": {
+    "city": "",
+    "unit": "metric",
+    "show_unit": false,
+    "provider": "",
+    "moreinfo": "accu",
+    "forecast": "always",
+    "temperature": "feelslike",
+    "geolocation": "precise"
+  },
+  "greetingscustom": {
+    "morning": "",
+    "afternoon": "",
+    "evening": "",
+    "night": ""
+  },
+  "notes": {
+    "on": true,
+    "width": 40,
+    "opacity": 0.1,
+    "align": "left",
+    "text": "## Edit this note!\n\n[ ] With markdown titles, lists, and checkboxes\n\n[ ] Learn more on https://bonjourr.fr/docs/overview#notes"
+  },
+  "searchbar": {
+    "on": false,
+    "opacity": 0.1,
+    "newtab": false,
+    "suggestions": true,
+    "engine": "default",
+    "request": "",
+    "placeholder": ""
+  },
+  "quotes": {
+    "on": false,
+    "type": "classic",
+    "frequency": "day",
+    "author": true,
+    "last": 1785934239365
+  },
+  "pomodoro": {
+    "on": false,
+    "mode": "pomodoro",
+    "pause": 0,
+    "end": 0,
+    "timeFor": {
+      "pomodoro": 1500,
+      "break": 300,
+      "longbreak": 1200
+    },
+    "focus": false,
+    "sound": true,
+    "volume": 0.7,
+    "alarm": "marimba",
+    "history": []
+  },
+  "font": {
+    "color": "#ffffff",
+    "size": "17.05",
+    "family": "Atkinson Hyperlegible Next",
+    "system": true,
+    "weightlist": [
+      "100",
+      "200",
+      "300",
+      "400",
+      "500",
+      "600",
+      "700",
+      "800",
+      "900"
+    ],
+    "weight": "300"
+  },
+  "supporters": {
+    "enabled": false
+  },
+  "move": {
+    "selection": "single",
+    "layouts": {
+      "single": {
+        "items": {
+          "notes": {
+            "text": "",
+            "box": "center"
+          }
+        },
+        "grid": [
+          [
+            "time"
+          ],
+          [
+            "main"
+          ],
+          [
+            "notes"
+          ],
+          [
+            "quicklinks"
+          ]
+        ]
+      }
+    }
+  }
+}

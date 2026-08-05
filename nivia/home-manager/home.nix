@@ -6,7 +6,13 @@
   config,
   pkgs,
   ...
-}: {
+}:
+# TODO place this more "globally" somehow
+let 
+  username = "nivia";
+  home = "/home/${username}";
+in
+ {
   # You can import other home-manager modules here
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
@@ -16,7 +22,7 @@
     # ./nvim.nix
     ./editor
     ./terminal
-    ./browser.nix
+    ./browser
   ];
 
   nixpkgs = {

@@ -24,6 +24,7 @@
     ./locale.nix
     ./steam.nix
     ./toki-pona.nix
+    ./fonts.nix
   ];
 
   # Configure console keymap
@@ -98,7 +99,6 @@
     # editor
     #vim
     # nano comes by default
-    librewolf
 
     # browser
     ungoogled-chromium
@@ -125,6 +125,7 @@
     openscad
     hyfetch
     fastfetch
+    
 
     # messenger
     fluffychat # matrix client
@@ -184,6 +185,7 @@
     openttd
     # celestegame #FIXME reenable
     vbam
+    steam-run
 
     # media
     x264 # H264/AVC video
