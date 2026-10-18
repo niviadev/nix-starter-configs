@@ -1,6 +1,12 @@
+{ pkgs, ... }:
 {
     imports = [
         ./dns.nix
+        ./vpn.nix
+    ];
+
+    environment.systemPackages = with pkgs; [
+
     ];
 
     networking = {

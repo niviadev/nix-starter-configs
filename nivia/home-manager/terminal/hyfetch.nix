@@ -1,4 +1,10 @@
+{ pkgs, ... }:
 {
+    home.packages = with pkgs; [
+        hyfetch
+        fastfetch
+    ];
+
     programs.hyfetch = {
         enable = true;
         settings = {
@@ -6,9 +12,9 @@
             backend = "fastfetch";
             color_align.mode = "horizontal";
             light_dark = "dark";
-            lightness = 0.65; 
+            lightness = 0.65;
             mode = "rgb";
-            preset = [ 
+            preset = [
                 # have weighted flags so that some flags show up more often than others
                 # transgender x30
                 "transgender"
@@ -86,16 +92,16 @@
                 "pansexual"
                 "pansexual"
                 # lesbian x10
-                "lesbian" 
-                "lesbian" 
-                "lesbian" 
-                "lesbian" 
-                "lesbian" 
-                "lesbian" 
-                "lesbian" 
-                "lesbian" 
-                "lesbian" 
-                "lesbian" 
+                "lesbian"
+                "lesbian"
+                "lesbian"
+                "lesbian"
+                "lesbian"
+                "lesbian"
+                "lesbian"
+                "lesbian"
+                "lesbian"
+                "lesbian"
                 # sapphic x5
                 "sapphic"
                 "sapphic"
@@ -123,7 +129,7 @@
                 "interprogress"
                 #autism x1
                 "autism"
-                ]; 
+            ];
             pride_month_disable = false;
         };
     };

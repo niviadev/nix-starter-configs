@@ -1,6 +1,7 @@
+{ ... }:
 {
     imports = [
-        ./fish.nix
+        ./fish
         ./hyfetch.nix
     ];
 }

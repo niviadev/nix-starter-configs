@@ -7,6 +7,7 @@
 }:
 let
     userChromeCss = builtins.readFile ./userchrome.css;
+    userContentCss = builtins.readFile ./usercontent.css;
 in
 {
     imports = [
@@ -15,30 +16,44 @@ in
         ./search-engines.nix
     ];
 
+    programs.fish.shellAliases = {
+        librewolf = "librewolf --name librewolf";
+    }
+
+    #environment.systemPackages = with pkgs; [
+    #
+    #];
+
     programs.librewolf = {
         # docs: https://firefox-source-docs.mozilla.org/index.html
         enable = true;
 
         policies = {
-            # docs: https://firefox-admin-docs.mozilla.org/reference/policies/ 
+            # docs: https://firefox-admin-docs.mozilla.org/reference/policies/
 
             ### BOOKMARKS ###
-            "DisplayBookmarksToolbar" = "newtab";
             NoDefaultBookmarks = true;
 
             ### BROWSER UI ###
-            "DisableFeedbackCommands" = true;
-            DisableSetDesktopBackground = true; 
-            "DisplayMenuBar" = "default-on";
-            
-            ### CERTIFICATE MANAGEMENT ###
-            # TODO https://mozilla.github.io/policy-templates/#securitydevices
+            DisableFeedbackCommands = true;
+            DisableSetDesktopBackground = true;
+            DisplayMenuBar = "never";
 
             ### CLOUD REPORTING ###
-            "CrashReportsSubmit"."Enabled" = false;
+            CrashReportsSubmit.Enabled = false;
 
             ### CONTENT SETTINGS ###
-            # TODO https://firefox-admin-docs.mozilla.org/reference/policies/permissions/
+            Permissions = {
+                Notifications = {
+                    Allow = [
+                        "https://mk.absturztau.be"
+                    ];
+                    Block = [
+                        "https://www.youtube.com"
+                        "https://mail.proton.me"
+                    ];
+                };
+            };
             PictureInPicture = {
                 Enabled = true;
                 Locked = true;
@@ -47,20 +62,15 @@ in
             ### DOWNLOADS ###
             DefaultDownloadDirectory = "/home/nivia/Downloads";
             PromptForDownloadLocation = false;
-            
+
             ### EXTENSIONS ###
             # ExtensionSettings: see ./extensions.nix
-            # # TODO https://firefox-admin-docs.mozilla.org/reference/policies/containers/
 
             ### LOCAL DATA STORAGE ###
-            SanitizeOnShutdown = {
-                Cookies =  true;
-                Locked = true;
-            };
 
             ### MISCELLANEOUS ###
-            # TODO DisableAccounts = true;
-            # TODO DisableFirefoxAccounts = true;
+            DisableAccounts = true;
+            #DisableFirefoxAccounts = true;
             DisableFirefoxScreenshots = true;
             DisableFirefoxStudies = true;
             DisableTelemetry = true;
@@ -69,58 +79,69 @@ in
                 FeatureRecommendations = false;
                 UrlbarInterventions = false;
                 SkipOnboarding = true;
-                MoreFromMozilla =  false;
+                MoreFromMozilla = false;
                 FirefoxLabs = false;
                 Locked = true;
             };
 
             ### NETWORK SECURITY ###
             CaptivePortal = true;
-            Cookies = {
-                Behaviour = "partition-foreign";
-                BehaviourPrivateBrowsing = "partition-foreign";
-                Locked = true;
-            };
+            /*
+              Cookies = {
+                  Behaviour = "partition-foreign";
+                  BehaviourPrivateBrowsing = "partition-foreign";
+                  Locked = true;
+              };
+            */
             DNSOverHTTPS = {
                 # using DNScrypt in ../nixos/networking/dns.nix already; prevent from mistakenly turning this on
                 Enabled = false;
                 Locked = true;
             };
-            EnableTrackingProtection = {
-                Value = true;
-                Locked = true;
-                Category= "strict";
-            };
-            IPProtectionAvailable = false; 
-            
+            #EnableTrackingProtection = {
+            #    Value = true;
+            #    Locked = true;
+            #    Category= "strict";
+            #};
+            IPProtectionAvailable = false;
+
             ### PASSWORD MANAGER ###
-            AutofillAddressEnabled = false; #TODO check if actually wanted
+            AutofillAddressEnabled = false;
             AutofillCreditCardEnabled = false;
             PrimaryPassword = false;
             OfferToSaveLogins = false;
-            
+
             ### SEARCH ###
             SearchBar = "unified";
             SearchSuggestEnabled = true;
             VisualSearchEnabled = false; # bloatware: google lens
 
             ### SECURITY ###
-            # TODO https://firefox-admin-docs.mozilla.org/reference/policies/3rdparty/
             # TODO https://firefox-admin-docs.mozilla.org/reference/policies/preferences/
+            Preferences = {
+                /*
+                  # enable userChrome.css
+                  "toolkit.legacyUserProfileCustomizations.stylesheets" = {
+                      Value = true;
+                      Status = "locked";
+                  };
+                */
+            };
 
             ### STARTUP ###
             DontCheckDefaultBrowser = true;
-            FirefoxHome = { #TODO
-                #Search: true,
-                #TopSites: true,
-                SponsoredTopSites = false;
+            FirefoxHome = {
+                Search = true;
+                TopSites = true;
+                Weather = true;
                 Highlights = false;
-                #Pocket: true | false,
+                Pocket = false;
                 Stories = false;
+                Snippets = false;
                 SponsoredPocket = false;
                 SponsoredStories = false;
-                #Snippets: true | false,
-                Locked = false;
+                SponsoredTopSites = false;
+                Locked = true;
             };
             Homepage = {
                 Startpage = "none";
@@ -138,30 +159,30 @@ in
         };
 
         settings = {
-            # documentation 
+            # enable userChrome.css
+            # TODO move some over to policies.preferences
+            # TODO order the preferences nicely
+
+            # documentation
             # https://kb.mozillazine.org/About:config_entries
             # https://searchfox.org/
+            # https://searchfox.org/firefox-main/source/modules/libpref/init/StaticPrefList.yaml
             # resource:///defaults/preferences/firefox.js
-            # resource://gre/greprefs.js 
+            # resource://gre/greprefs.js
 
             # TODO sift through guides for better hardening
             # https://gist.github.com/jornane/f47c344bae4c04ac761ee48b0b88c869
-            # https://brainfucksec.github.io/firefox-hardening-guide 
-            
-
+            # https://brainfucksec.github.io/firefox-hardening-guide
 
             ###############
             # preferences #
             ###############
-            "alerts.totalOpenTime" = 2500;
             "dom.input.fallbackUploadDir" = "/home/nivia";
-            
-            # this is a nice feature :3
-            "accessibility.typeaheadfind" = true;
-            #"accessibility.typeaheadfind.soundURL" = "home/nivia/Downloads/sample-3s.wav"; #TODO figure out how to have own sound here, for the lulz
-            
+            # enable userchrome.css
+            "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+
             # resume previous session
-            "browser.startup.page" = 3; 
+            "browser.startup.page" = 3;
 
             "browser.tabs.insertAfterCurrent" = true;
             "browser.display.background_color" = "#000000";
@@ -174,8 +195,6 @@ in
             ##########
             ### UX ###
             ##########
-            # enable userChrome.css 
-            "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 
             "sidebar.verticalTabs" = true;
             "browser.active_color" = "#F5ABB9"; # make link trans colored on keydown event
@@ -190,18 +209,16 @@ in
             "browser.bookmarks.editDialog.showForNewBookmarks" = true;
             "browser.bookmarks.added_static_root" = true;
             "browser.bookmarks.restore_default_bookmarks" = false;
-            
-            
+
             # downloads
-            
+
             # internationalization / locale
             "intl.accept_languages" = "en-US, en, de-DE, de, tok";
             "browser.translations.neverTranslateLanguages" = "en-US, en, de-DE, de";
-            
+
             # performance
             # force enable GPU acceleration
             "gfx.webrender.all" = true;
-
 
             ###########
             # privacy #
@@ -257,7 +274,7 @@ in
             "toolkit.telemetry.firstShutdownPing.enabled" = false;
             "toolkit.telemetry.hybridContent.enabled" = false;
             "toolkit.telemetry.newProfilePing.enabled" = false;
-            "toolkit.telemetry.prompted" = 2; 
+            "toolkit.telemetry.prompted" = 2;
             "toolkit.telemetry.rejected" = true;
             "toolkit.telemetry.reportingpolicy.firstRun" = false;
             "toolkit.telemetry.server" = "";
@@ -268,21 +285,22 @@ in
         };
 
         profiles = {
-            default = {        
+            default = {
                 # TODO profile for standard use
-                # --> use https://www.reddit.com/r/firefox/comments/r0dgfz/comment/hlrr0ed for inspiration  
+                # --> use https://www.reddit.com/r/firefox/comments/r0dgfz/comment/hlrr0ed for inspiration
                 userChrome = userChromeCss;
+                userContent = userContentCss;
             };
             /*
-            failsafe = {
-                # TODO failsafe profile for single use websites that break on standard profile
-            };
-            temp = {
-                # TODO temporary profile that gets discarded after every use, amnesic
-            };
-            webapps = {
-                # TODO webapp profile with services where im permanently logged in
-            };
+              failsafe = {
+                  # TODO failsafe profile for single use websites that break on standard profile
+              };
+              temp = {
+                  # TODO temporary profile that gets discarded after every use, amnesic
+              };
+              webapps = {
+                  # TODO webapp profile with services where im permanently logged in
+              };
             */
         };
     };
